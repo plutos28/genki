@@ -1,0 +1,2 @@
+module GenkiHelper
+end
