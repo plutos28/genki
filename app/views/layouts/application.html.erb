@@ -13,6 +13,8 @@
 
   <body>
     <div class="flex h-screen">
+      <!-- display only for logged in users -->
+      <% unless Current.user.nil? %>
       <!-- nav drawer -->
       <aside class="w-[110px] pt-10">
         <!-- navigation drawer opener -->
@@ -62,6 +64,7 @@
           
         </div>
       </aside>
+      <% end %>
 
       <!-- content area -->
       <main class="pt-12">
