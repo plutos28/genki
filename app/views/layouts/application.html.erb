@@ -14,13 +14,13 @@
   <body>
     <div class="flex h-screen">
       <!-- nav drawer -->
-      <aside class="w-[110px] pt-6 grid grid-rows-3">
-        <!-- user profile -->
+      <aside class="w-[110px] pt-10">
+        <!-- navigation drawer opener -->
         <div class="flex justify-center w-full">
           <div class="flex items-center justify-center  w-10 h-10 hover:scale-[1.09] transition duration-150 ease-in-out">
             <!-- move this user profile thing maybe to the bottom of the rail or on the right side of the app -->
             <!-- <a href="{{ url_for('user', username=current_user.username) }}" class="text-xl font-bold">V</a> -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+            <svg class="hover:fill-cyan-700 fill-gray-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
           </div>
         </div>
 
@@ -45,7 +45,7 @@
       </aside>
 
       <!-- content area -->
-      <main>
+      <main class="pt-10">
         <%= yield %>
       </main>
     </div>
