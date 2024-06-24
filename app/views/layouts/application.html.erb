@@ -68,9 +68,9 @@
 
       <% unless Current.user.nil? %>
       <!-- user profile -->
-      <a href="<%= root_path %>" class="flex justify-center absolute top-10 right-6">
-        <div class="flex w-12 h-12 items-center justify-center rounded-full bg-yellow-300">
-          <p class="text-2xl font-bold"><%= Current.user.email[0].upcase %></p>
+      <a href="<%= root_path %>" class="flex justify-center absolute top-10 right-3 md:right-6">
+        <div class="flex w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-yellow-300">
+          <p class="text-xl md:text-2xl font-bold"><%= Current.user.email[0].upcase %></p>
         </div>
       </a>
       <% end %>
