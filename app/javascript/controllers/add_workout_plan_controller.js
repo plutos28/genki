@@ -12,6 +12,12 @@ export default class extends Controller {
       // show the sheet and its overlay
       sheet.classList.remove("hidden");
       sheetOverlay.classList.remove("hidden");
+
     });
+
+    sheetOverlay.addEventListener('click', (e) => {
+      sheetOverlay.classList.add('hidden');
+      sheet.classList.add('hidden');
+    })
   }
 }
