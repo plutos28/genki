@@ -1,6 +1,8 @@
 class StatsController < ApplicationController
   def index
-    @stats = Stat.all
+    @stats = Stat.where(user_id: Current.user.id)
+    @latest_weight = @stats.where(name: 'weight').order(created_at: :desc).first
+    @latest_height = @stats.where(name: 'height').order(created_at: :desc).first
     @stat = Stat.new
   end
 
