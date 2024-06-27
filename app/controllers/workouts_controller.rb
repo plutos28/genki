@@ -3,5 +3,6 @@ class WorkoutsController < ApplicationController
   end
 
   def new
+    @workout_plan = WorkoutPlan.new
   end
 end

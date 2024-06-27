@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: 9.99
+  height: 9.99
+  age: 9.99
+  bodyfat: 9.99
+  lifestyle: MyString
+  frequency: MyString
+  volume: MyString
+  duration: 1
+  intensity: MyString
+  goal: MyString
+  type_of_training: MyString
+
+two:
+  weight: 9.99
+  height: 9.99
+  age: 9.99
+  bodyfat: 9.99
+  lifestyle: MyString
+  frequency: MyString
+  volume: MyString
+  duration: 1
+  intensity: MyString
+  goal: MyString
+  type_of_training: MyString

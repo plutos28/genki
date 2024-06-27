@@ -1,0 +1,29 @@
+<%= form_with(model: workout_plan, url: workouts_path) do |form| %>
+  <% if workout_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(workout_plan.errors.count, "error") %> prohibited this workout plan from being saved:</h2>
+
+      <ul>
+      <% workout_plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.number_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.number_field :height %>
+  </div>
+
+  <!-- Add other fields as needed -->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
