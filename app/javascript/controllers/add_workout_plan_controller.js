@@ -5,6 +5,7 @@ export default class extends Controller {
   connect() {
     const sheet = document.querySelector('#new-workout-plan-sheet');
     const sheetOverlay = document.querySelector('#new-workout-plan-sheet-overlay');
+    let form;
 
     this.element.addEventListener('click', (e) => {
       console.log("open sheet");
@@ -19,5 +20,13 @@ export default class extends Controller {
       sheetOverlay.classList.add('hidden');
       sheet.classList.add('hidden');
     })
+
+    if(this.element.tagName === 'BUTTON') {
+      this.element.addEventListener('click', (e) => {
+        console.log('close sheet');
+        sheetOverlay.classList.add('hidden');
+        sheet.classList.add('hidden');
+      })
+    }
   }
 }
