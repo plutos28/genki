@@ -3,6 +3,9 @@
   <head>
     <title>Genki</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -11,7 +14,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="font-roboto">
     <div class="flex h-screen">
       <!-- display only for logged in users -->
       <% unless Current.user.nil? %>
@@ -31,34 +34,34 @@
           <!-- Stats -->
           <% if request.path == stats_path  %>
             <a href="<%= stats_path %>" class="flex flex-col items-center">
-              <div class="flex rounded-3xl items-center px-5 py-2 bg-yellow-200">
+              <div class="flex rounded-3xl items-center px-5 py-2 bg-gray-200">
                 <svg class="hover:fill-yellow-500 fill-black-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0v94.37L90.73,98a8,8,0,0,1,10.07-.38l58.81,44.11L218.73,90a8,8,0,1,1,10.54,12l-64,56a8,8,0,0,1-10.07.38L96.39,114.29,40,163.63V200H224A8,8,0,0,1,232,208Z"></path></svg>
               </div>
-              <p class="lg:block text-gray-600 font-bold">Stats</p>
+              <p class="lg:block text-black font-bold">Stats</p>
             </a>
           <% else %>
             <a href="<%= stats_path %>" class="flex flex-col items-center">
               <div class="flex rounded-3xl items-center px-5 py-2">
                 <svg class="hover:fill-yellow-500 fill-black-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0v94.37L90.73,98a8,8,0,0,1,10.07-.38l58.81,44.11L218.73,90a8,8,0,1,1,10.54,12l-64,56a8,8,0,0,1-10.07.38L96.39,114.29,40,163.63V200H224A8,8,0,0,1,232,208Z"></path></svg>
               </div>
-              <p class="lg:block text-gray-600 font-bold">Stats</p>
+              <p class="lg:block text-black font-bold">Stats</p>
             </a>
           <% end %>
 
           <!-- Plans -->
           <% if request.path == workouts_path or request.path == nutrition_index_path %>
             <a href="<%= workouts_path %>" class="flex flex-col items-center">
-              <div class="flex rounded-3xl items-center px-5 py-2 bg-yellow-200">
+              <div class="flex rounded-3xl items-center px-5 py-2 bg-gray-200">
                 <svg class="hover:fill-yellow-500 fill-gray-500"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M248,120h-8V88a16,16,0,0,0-16-16H208V64a16,16,0,0,0-16-16H168a16,16,0,0,0-16,16v56H104V64A16,16,0,0,0,88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V136h48v56a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16v-8h16a16,16,0,0,0,16-16V136h8a8,8,0,0,0,0-16ZM32,168V88H48v80Zm56,24H64V64H88V192Zm104,0H168V64h24V175.82c0,.06,0,.12,0,.18s0,.12,0,.18V192Zm32-24H208V88h16Z"></path></svg>
               </div>
-              <p class="lg:block text-gray-600 font-bold">Plans</p>
+              <p class="lg:block text-black font-bold">Plans</p>
             </a>
           <% else %>
             <a href="<%= workouts_path %>" class="flex flex-col items-center">
               <div class="flex rounded-3xl items-center px-5 py-2">
                 <svg class="hover:fill-yellow-500 fill-gray-500"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M248,120h-8V88a16,16,0,0,0-16-16H208V64a16,16,0,0,0-16-16H168a16,16,0,0,0-16,16v56H104V64A16,16,0,0,0,88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V136h48v56a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16v-8h16a16,16,0,0,0,16-16V136h8a8,8,0,0,0,0-16ZM32,168V88H48v80Zm56,24H64V64H88V192Zm104,0H168V64h24V175.82c0,.06,0,.12,0,.18s0,.12,0,.18V192Zm32-24H208V88h16Z"></path></svg>
               </div>
-              <p class="lg:block text-gray-600 font-bold">Plans</p>
+              <p class="lg:block text-black font-bold">Plans</p>
             </a>
           <% end %>
           
@@ -69,7 +72,7 @@
       <% unless Current.user.nil? %>
       <!-- user profile -->
       <a href="<%= root_path %>" class="flex justify-center absolute top-10 right-3 md:right-6">
-        <div class="flex w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-yellow-300">
+        <div class="flex w-10 h-10 md:w-12 md:h-12 items-center justify-center rounded-full bg-indigo-300">
           <p class="text-xl md:text-2xl font-bold"><%= Current.user.email[0].upcase %></p>
         </div>
       </a>
