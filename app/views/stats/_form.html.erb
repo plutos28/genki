@@ -1,0 +1,6 @@
+<%= form_with(model: stat) do |form| %>
+  <%= form.hidden_field :name, value: name %>
+  <%= form.number_field :value, placeholder: unit %>
+  <%= form.hidden_field :unit, value: unit  %>
+  <%= form.submit "Save" %>
+<% end %>
