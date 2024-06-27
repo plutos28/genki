@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :workouts
   resources :nutrition
   resources :stats 
+  resources :tools
 end
