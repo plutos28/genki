@@ -10,26 +10,12 @@
 
   <div class="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-24 w-[1000px]">
     <!-- Weight card -->
-    <div class="bg-gray-100 w-64 h-38 rounded-md p-3">
-      <h1 class="text-md text-gray-600">Weight</h1>
-
-      <% unless @latest_weight.nil? %>
-      <p class="mt-2 text-lg"><%= "#{@latest_weight.value} #{@latest_weight.unit}" %></p>
-      <% else %>
-      <p class="mt-2 text-lg">N/A</p>
-      <% end %>
-      <%= render "form", stat: @stat, unit: 'kg', name: 'weight' %>
-    </div>
+    <%= render  "card", stat: @stat, card_name: 'weight', latest_data: @latest_weight, unit: 'kg' %>
 
     <!-- Height card -->
-    <div class="bg-gray-100 w-64 h-38 rounded-md p-3">
-      <h1 class="text-md text-gray-600">Height</h1>
-      <% unless @latest_height.nil? %>
-      <p class="mt-2 text-lg"><%= "#{@latest_height.value} #{@latest_height.unit}" %></p>
-      <% else %>
-      <p class="mt-2 text-lg">N/A</p>
-      <% end %>
-      <%= render "form", stat: @stat, unit: 'cm', name: 'height' %>
-    </div>
+    <%= render  "card", stat: @stat, card_name: 'height', latest_data: @latest_height, unit: 'cm' %>
+
+    <!-- Age card -->
+    <%= render  "card", stat: @stat, card_name: 'age', latest_data: @latest_age, unit: 'years' %>
   <div>
 </div>

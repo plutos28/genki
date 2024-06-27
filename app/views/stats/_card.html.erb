@@ -1,0 +1,9 @@
+<div class="bg-gray-100 w-64 h-38 rounded-md p-3">
+    <h1 class="text-md text-gray-600 capitalize"><%= card_name %></h1>
+    <% unless latest_data.nil? %>
+    <p class="mt-2 text-lg"><%= "#{latest_data.value} #{latest_data.unit}" %></p>
+    <% else %>
+    <p class="mt-2 text-lg">N/A</p>
+    <% end %>
+    <%= render "form", stat: stat, unit: unit, name: card_name %>
+</div>
