@@ -11,19 +11,107 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.number_field :weight %>
+  <div class="field flex flex-col mb-2">
+    <%= form.label :weight, "Weight(kg)" %> 
+    <%= form.number_field :weight, value: latest_weight.value %>
   </div>
 
-  <div class="field">
-    <%= form.label :height %>
-    <%= form.number_field :height %>
+  <div class="field flex flex-col mb-2">
+    <%= form.label :height, "Height(cm)" %>
+    <%= form.number_field :height, value: latest_height.value %>
   </div>
 
-  <!-- Add other fields as needed -->
+  <div class="field flex flex-col mb-2">
+    <%= form.label :age, "Age" %>
+    <%= form.number_field :age, value: latest_age.value %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :bodyfat, "Bodyfat %" %>
+    <%= form.number_field :bodyfat, value: latest_bodyfat.value %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :goal, "Goal" %>
+    <%= form.select :goal, options_for_select([
+      ['Lose Weight', 'lose_weight'],
+      ['Build Muscle', 'build_muscle'],
+      ['Increase Endurance', 'increase_endurance'],
+      ['Improve Flexibility', 'improve_flexibility'],
+      ['Maintain Fitness', 'maintain_fitness'],
+    ]) %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :lifestyle, "Lifestyle" %>
+    <%= form.select :lifestyle, options_for_select([
+      ['Sedentary (little or no exercise)', 'sedentary'],
+      ['Light Exercise (1-3 days/week)', 'light_exercise'],
+      ['Moderate Exercise (3-5 days/week)', 'moderate_exercise'],
+      ['Heavy Exercise (6-7 days/week)', 'heavy_exercise'],
+      ['Elite Athlete (very hard exercise/physical job)', 'elite_athlete']
+    ]) %>
+  </div>
+
+   <div class="field flex flex-col mb-2">
+    <%= form.label :frequency, "Workout Frequency" %>
+    <%= form.select :frequency, options_for_select([
+      ['1-2 days a week', '1-2'],
+      ['3-4 days a week', '3-4'],
+      ['5-6 days a week', '5-6'],
+      ['Every day', '7']
+    ]) %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :volume, "Volume" %>
+    <%= form.select :volume, options_for_select([
+      ['Low Volume (few sets and reps per session)', 'low'],
+      ['Moderate Volume (moderate sets and reps per session)', 'moderate'],
+      ['High Volume (many sets and reps per session)', 'high']
+    ]) %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :duration, "Duration (minutes)" %>
+    <%= form.select :duration, options_for_select([
+      ['15-30 minutes', '15-30'],
+      ['30-45 minutes', '30-45'],
+      ['45-60 minutes', '45-60'],
+      ['60+ minutes', '60+']
+    ]) %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :intensity, "Intensity" %>
+    <%= form.select :intensity, options_for_select([
+      ['Low(Light effort, easy pace)', 'low'],
+      ['Moderate(Moderate effort, can hold a conversation)', 'moderate'],
+      ['High(Hard effort, challenging pace)', 'high']
+    ]) %>
+  </div>
+
+  <div class="field flex flex-col mb-2">
+    <%= form.label :type_of_training, "Type of Training" %>
+    <%= form.select :type_of_training, options_for_select([
+      ['Home Training', 'home_training'],
+      ['Gym', 'gym'],
+      ['Outdoor', 'outdoor'],
+      ['Sports', 'sports'],
+    ]) %>
+  </div>
+
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%
+=begin%>
+ <%= form.submit "Generate", class: 'hover:scale-2 mt-1 rounded-md w-28 bg-blue-400 px-2 py-1 text-white' %> 
+<%
+=end%>
+    <%= button_tag(type: 'submit', class: 'flex items-center hover:scale-2 mt-1 rounded-md w-32 bg-blue-400 px-2 py-2 text-white') do %>
+      <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"></path></svg>
+      Generate
+    <% end %>
   </div>
 <% end %>
