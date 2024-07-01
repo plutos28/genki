@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: 1.5
+  height: 1.5
+  age: 1.5
+  bodyfat: 1.5
+  lifestyle: MyString
+  protein: MyString
+  fat: MyString
+  carb: MyString
+  goal: MyString
+
+two:
+  weight: 1.5
+  height: 1.5
+  age: 1.5
+  bodyfat: 1.5
+  lifestyle: MyString
+  protein: MyString
+  fat: MyString
+  carb: MyString
+  goal: MyString
