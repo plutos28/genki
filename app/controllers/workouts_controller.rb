@@ -36,10 +36,6 @@ class WorkoutsController < ApplicationController
 
   end
 
-  def context(prompt)
-    "[INST]#{prompt}[/INST]"
-  end
-
   def new
     @workout_plan = WorkoutPlan.new
     @stats = Stat.where(user_id: Current.user.id)
@@ -55,7 +51,7 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       if @workout_plan.save
-        format.html { redirect_to workouts_url, notice: "Workout plan have been successfully generated"}
+        format.html { redirect_to workouts_url, notice: "Workout plan has been successfully generated"}
       else
         format.html { render :new, status: :unprocessable_entity }
       end

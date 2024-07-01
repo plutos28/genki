@@ -26,8 +26,8 @@
     <turbo-frame id="load_workout_sheet">
       <div class="w-32 py-3 flex items-center justify-center rounded-lg border-2 border-dashed border-orange-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
         <%= link_to "Add plan",
-        new_workout_path,
-        data: { turbo_frame: 'add_workout_form', controller: 'add-workout-plan'},
+        new_nutrition_path,
+        data: { turbo_frame: 'add_nutrition_form', controller: 'add-workout-plan'},
         class: 'text-lg text-orange-600' %>
       </div>
       
@@ -54,7 +54,7 @@
   <div id="new-workout-plan-sheet" class="hidden px-4 py-6 flex flex-col h-screen absolute top-0 right-0 w-3/6 lg:w-2/5 bg-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
     <h1 class="text-2xl font-bold mb-1">Add new nutrition plan</h1> 
     <h1 class="text-lg mb-8 text-gray-500">Fill the form to get a personalized nutritional plan.</h1> 
-    <turbo-frame class="" id="add_workout_form"></turbo-frame>
+    <turbo-frame class="" id="add_nutrition_form"></turbo-frame>
   </div>
 </div>
 

@@ -1,10 +1,10 @@
-<%= form_with(model: workout_plan, url: workouts_path) do |form| %>
-  <% if workout_plan.errors.any? %>
+<%= form_with(model: nutrition_plan, url: nutrition_index_path) do |form| %>
+  <% if nutrition_plan.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(workout_plan.errors.count, "error") %> prohibited this workout plan from being saved:</h2>
+      <h2><%= pluralize(nutrition_plan.errors.count, "error") %> prohibited this workout plan from being saved:</h2>
 
       <ul>
-      <% workout_plan.errors.full_messages.each do |message| %>
+      <% nutrition_plan.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -34,11 +34,10 @@
   <div class="field flex flex-col mb-2">
     <%= form.label :goal, "Goal" %>
     <%= form.select :goal, options_for_select([
-      ['Lose Weight', 'lose_weight'],
-      ['Build Muscle', 'build_muscle'],
-      ['Increase Endurance', 'increase_endurance'],
-      ['Improve Flexibility', 'improve_flexibility'],
-      ['Maintain Fitness', 'maintain_fitness'],
+      ['Lose Weight', 'lose weight'],
+      ['Gain Weight', 'gain_ eight'],
+      ['Build Muscle', 'build muscle'],
+      ['Maintain Weight', 'maintain weight'],
     ]) %>
   </div>
 
@@ -46,61 +45,39 @@
     <%= form.label :lifestyle, "Lifestyle" %>
     <%= form.select :lifestyle, options_for_select([
       ['Sedentary (little or no exercise)', 'sedentary'],
-      ['Light Exercise (1-3 days/week)', 'light_exercise'],
-      ['Moderate Exercise (3-5 days/week)', 'moderate_exercise'],
-      ['Heavy Exercise (6-7 days/week)', 'heavy_exercise'],
-      ['Elite Athlete (very hard exercise/physical job)', 'elite_athlete']
-    ]) %>
-  </div>
-
-   <div class="field flex flex-col mb-2">
-    <%= form.label :frequency, "Workout Frequency" %>
-    <%= form.select :frequency, options_for_select([
-      ['1-2 days a week', '1-2'],
-      ['3-4 days a week', '3-4'],
-      ['5-6 days a week', '5-6'],
-      ['Every day', '7']
+      ['Light Exercise (1-3 days/week)', 'light exercise'],
+      ['Moderate Exercise (3-5 days/week)', 'moderate exercise'],
+      ['Heavy Exercise (6-7 days/week)', 'heavy exercise'],
+      ['Elite Athlete (very hard exercise/physical job)', 'elite athlete']
     ]) %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :volume, "Volume" %>
-    <%= form.select :volume, options_for_select([
-      ['Low Volume (few sets and reps per session)', 'low'],
-      ['Moderate Volume (moderate sets and reps per session)', 'moderate'],
-      ['High Volume (many sets and reps per session)', 'high']
+    <%= form.label :protein, "Protein" %>
+    <%= form.select :protein, options_for_select([
+      ['Low', 'low'],
+      ['Moderate', 'moderate'],
+      ['High', 'high'],
     ]) %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :duration, "Duration (minutes)" %>
-    <%= form.select :duration, options_for_select([
-      ['15-30 minutes', '15-30'],
-      ['30-45 minutes', '30-45'],
-      ['45-60 minutes', '45-60'],
-      ['60+ minutes', '60+']
+    <%= form.label :fat, "Fat" %>
+    <%= form.select :fat, options_for_select([
+      ['Low', 'low'],
+      ['Moderate', 'moderate'],
+      ['High', 'high'],
     ]) %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :intensity, "Intensity" %>
-    <%= form.select :intensity, options_for_select([
-      ['Low(Light effort, easy pace)', 'low'],
-      ['Moderate(Moderate effort, can hold a conversation)', 'moderate'],
-      ['High(Hard effort, challenging pace)', 'high']
+    <%= form.label :carb, "Carb" %>
+    <%= form.select :carb, options_for_select([
+      ['Low', 'low'],
+      ['Moderate', 'moderate'],
+      ['High', 'high'],
     ]) %>
   </div>
-
-  <div class="field flex flex-col mb-2">
-    <%= form.label :type_of_training, "Type of Training" %>
-    <%= form.select :type_of_training, options_for_select([
-      ['Home Training', 'home_training'],
-      ['Gym', 'gym'],
-      ['Outdoor', 'outdoor'],
-      ['Sports', 'sports'],
-    ]) %>
-  </div>
-
 
   <div class="actions">
     <%
