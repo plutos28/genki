@@ -11,10 +11,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        dm: ['DM Sans', 'sans-serif'],
-        open: ['Open Sans', 'sans-serif'],
-        work: ['Work Sans', 'sans-serif'],
-        roboto: ['Roboto', 'sans-serif'],
       },
     },
   },
