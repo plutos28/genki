@@ -8,58 +8,76 @@ export default class extends Controller {
 
     let options = {
       series: [{
-      name: 'Net Profit',
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-      name: 'Revenue',
-      data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-      name: 'Free Cash Flow',
-      data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+        name: "Weight",
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
     }],
       chart: {
-      type: 'bar',
-      height: 350
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: '55%',
-        endingShape: 'rounded'
-      },
+      height: 350,
+      type: 'line',
+      zoom: {
+        enabled: false
+      }
     },
     dataLabels: {
       enabled: false
     },
     stroke: {
-      show: true,
-      width: 2,
-      colors: ['transparent']
+      curve: 'straight'
+    },
+    title: {
+      text: 'Weight',
+      align: 'left'
+    },
+    grid: {
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
     },
     xaxis: {
-      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-    },
-    yaxis: {
-      title: {
-        text: '$ (thousands)'
-      }
-    },
-    fill: {
-      opacity: 1
-    },
-    tooltip: {
-      y: {
-        formatter: function (val) {
-          return "$ " + val + " thousands"
-        }
-      }
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
     }
     };
 
-    let chartElm = document.querySelector("#chart");
-    console.log(chartElm);
+    let options2 = {
+      series: [{
+        name: "Height",
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+    }],
+      chart: {
+      height: 350,
+      type: 'line',
+      zoom: {
+        enabled: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'straight'
+    },
+    title: {
+      text: 'Height',
+      align: 'left'
+    },
+    grid: {
+      row: {
+        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+        opacity: 0.5
+      },
+    },
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    }
+    };
 
-    let chart = new ApexCharts(chartElm, options);
-    chart.render();
+    let weightChartElement = document.querySelector("#weightChart");
+    let weightChart = new ApexCharts(weightChartElement, options);
+    weightChart.render();
+
+    let heightChartElement = document.querySelector("#heightChart");
+    let heightChart = new ApexCharts(heightChartElement, options2);
+    heightChart.render();
   }
 }
