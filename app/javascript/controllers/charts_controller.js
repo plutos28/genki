@@ -76,6 +76,7 @@ export default class extends Controller {
     let weightChart = new ApexCharts(weightChartElement, options);
     weightChart.render();
 
+    // change this to bodyfat
     let heightChartElement = document.querySelector("#heightChart");
     let heightChart = new ApexCharts(heightChartElement, options2);
     heightChart.render();
