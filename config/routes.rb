@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :nutrition
   resources :stats 
   resources :tools
+
+  get "statsdata", to: 'stats#statsdata'
 end

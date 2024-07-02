@@ -12,6 +12,12 @@ class StatsController < ApplicationController
 
   end
 
+  def statsdata
+    @weight_stats = Stat.where(user_id: Current.user.id).where(name: 'weight').pluck(:value).map(&:to_f)
+    @bodyfat_stats = Stat.where(user_id: Current.user.id).where(name: 'bodyfat').pluck(:value).map(&:to_f)
+    render json: {weight: @weight_stats, bodyfat: @bodyfat_stats}
+  end
+
   def create
     @stat = Stat.new(stat_params)
     @stat.user_id = Current.user.id
