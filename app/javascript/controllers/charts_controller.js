@@ -19,7 +19,7 @@ export default class extends Controller {
       let options = {
         series: [{
           name: "Weight",
-          data: weightData 
+          data: weightData.map((data) => data.value)
       }],
         chart: {
         height: 350,
@@ -45,14 +45,15 @@ export default class extends Controller {
         },
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+            type: 'datetime',
+            categories: weightData.map((data) => new Date(data.date).getTime())
       }
       };
 
       let options2 = {
         series: [{
           name: "Bodyfat",
-          data: bodyfatData 
+          data: bodyfatData.map((data) => data.value)
       }],
         chart: {
         height: 350,
@@ -78,7 +79,9 @@ export default class extends Controller {
         },
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        type: 'datetime',
+        categories: bodyfatData.map((data) => new Date(data.date).getTime())
+
       }
       };
 

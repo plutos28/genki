@@ -13,8 +13,8 @@ class StatsController < ApplicationController
   end
 
   def statsdata
-    @weight_stats = Stat.where(user_id: Current.user.id).where(name: 'weight').pluck(:value).map(&:to_f)
-    @bodyfat_stats = Stat.where(user_id: Current.user.id).where(name: 'bodyfat').pluck(:value).map(&:to_f)
+    @weight_stats = Stat.where(user_id: Current.user.id, name: 'weight').pluck(:value, :created_at).map { |value, created_at| { value: value.to_f, date: created_at } }
+    @bodyfat_stats = Stat.where(user_id: Current.user.id).where(name: 'bodyfat').pluck(:value, :created_at).map { |value, created_at| { value: value.to_f, date: created_at } }
     render json: {weight: @weight_stats, bodyfat: @bodyfat_stats}
   end
 
