@@ -13,5 +13,7 @@ class GenerateWorkoutPlanJob < ApplicationJob
 
     response = http.request(request)
     response = JSON.parse(response.body)
+    logger.info "API call successful. Response: #{response}"
+
   end
 end
