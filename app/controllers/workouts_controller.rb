@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   def index
-    @workout_plans = WorkoutPlan.all
+    @workouts = Workout.all
     @workout = Workout.find(1)
   end
 
@@ -11,6 +11,10 @@ class WorkoutsController < ApplicationController
     @latest_height = @stats.where(name: 'height').order(created_at: :desc).first
     @latest_age = @stats.where(name: 'age').order(created_at: :desc).first
     @latest_bodyfat = @stats.where(name: 'bodyfat').order(created_at: :desc).first
+  end
+
+  def show
+    @workout = Workout.find(params[:id])
   end
 
   def create
