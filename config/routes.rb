@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :nutrition
   resources :stats 
   resources :tools
+  resources :coach
 
   get "statsdata", to: 'stats#statsdata'
+  get "reminders", to: 'coach#reminders'
 end
