@@ -19,9 +19,14 @@
   <!-- workouts list -->
   <h1 class="mt-10 mb-4 text-xl font-bold text-black">Your nutrition plans</h1>
   <div class="flex space-x-2">
-    <div class="w-72 h-10 py-3 flex items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-      <p class="text-lg text-black font-bold">Nutrition Plan 1</p>
-    </div>
+    <% @nutritions.each do |nutrition| %>
+      <turbo-frame id="load_workout_plan">
+        <%= link_to "Nutrition Plan #{nutrition[:id]}",
+          nutrition_path(nutrition[:id]),
+          data: { turbo_frame: 'show_nutrition_plan'},
+        class: "w-72 h-10 py-3 flex items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" %>
+      </turbo-frame>
+    <% end %>
 
     <turbo-frame id="load_workout_sheet">
       <div class="w-32 h-10 py-3 flex items-center justify-center rounded-lg border-2 border-dashed border-orange-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
@@ -34,19 +39,8 @@
     </turbo-frame>
   </div>
 
-  <!-- choose what week to see -->
-   <div class="mt-4">
-    <label class="" for="weeks">Choose a week:</label>
+  <turbo-frame class="" id="show_nutrition_plan"></turbo-frame>
 
-    <select name="weeks" id="weeks">
-      <option value="volvo">1</option>
-      <option value="saab">2</option>
-      <option value="mercedes">3</option>
-      <option value="audi">4</option>
-    </select>
-   </div>
-  
-  
   
   <!-- side sheet overlay -->
   <div id="new-workout-plan-sheet-overlay" class="hidden h-screen w-screen absolute top-0 left-0 backdrop-blur-[3px] bg-white/40"></div>
