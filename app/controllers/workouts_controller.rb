@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
   def index
     @workout_plans = WorkoutPlan.all
-    @latest_workout_plan = @workout_plans.find(2)
+    @workout = Workout.find(1)
   end
 
   def new

@@ -20,7 +20,7 @@
   <h1 class="mt-10 mb-4 text-xl font-bold text-black">Your workout plans</h1>
   <div class="flex space-x-2">
     <div class="w-72 py-3 flex items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-      <p class="text-lg text-black font-bold">5x5</p>
+      <p class="text-lg text-black font-bold">Workout 1</p>
     </div>
 
     <turbo-frame id="load_workout_sheet">
@@ -46,160 +46,10 @@
     </select>
    </div>
   
-  <!-- example of how workout plan weeks look like -->
-  <div class="grid grid-cols-2 gap-x-5">
-    <div class="w-[600px] mt-8 border border-black rounded-md divide-y">
-      <!-- table title -->
-      <div class="flex justify-between py-2 bg-gray-100">
-          <p class="text-gray-500 font-bold pl-3">Day 1 - Push Day</p>
-          <div class="flex items-center space-x-2">
-            <span class="text-[10px]">4/5 exercises completed</span>
-            <svg class="fill-gray-500 pr-3" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-          </div>
-      </div>
-  
-      <!-- column titles -->
-      <div class="grid grid-cols-4 px-3 py-2">
-        <p class="text-gray-500">ROUTINE</p>
-        <p class="text-gray-500">SETS</p>
-        <p class="text-gray-500">REPS</p>
-        <p class="text-gray-500">Weight</p>
-      </div>
-  
-      <!-- rows -->
-      <div class="divide-y">
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Shoulder Press</p>
-          <p>3</p>
-          <p>10</p>
-          <p>30</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Skull Crushers</p>
-          <p>3</p>
-          <p>10</p>
-          <p>20</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Chest Press</p>
-          <p>4</p>
-          <p>10</p>
-          <p>40</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Lu Raises</p>
-          <p>3</p>
-          <p>10</p>
-          <p>15</p>
-        </div>
-      </div>
-  
-    </div>
-    <div class="w-[600px] mt-8 border border-black rounded-md divide-y">
-      <!-- table title -->
-      <div class="flex justify-between py-2 bg-gray-100">
-          <p class="text-gray-500 font-bold pl-3">Day 2 - Pull Day</p>
-          <div class="flex items-center space-x-2">
-            <span class="text-[10px]">4/5 exercises completed</span>
-            <svg class="fill-gray-500 pr-3" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-          </div>
-      </div>
-  
-      <!-- column titles -->
-      <div class="grid grid-cols-4 px-3 py-2">
-        <p class="text-gray-500">ROUTINE</p>
-        <p class="text-gray-500">SETS</p>
-        <p class="text-gray-500">REPS</p>
-        <p class="text-gray-500">Weight</p>
-      </div>
-  
-      <!-- rows -->
-      <div class="divide-y">
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Shoulder Press</p>
-          <p>3</p>
-          <p>10</p>
-          <p>30</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Skull Crushers</p>
-          <p>3</p>
-          <p>10</p>
-          <p>20</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Chest Press</p>
-          <p>4</p>
-          <p>10</p>
-          <p>40</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Lu Raises</p>
-          <p>3</p>
-          <p>10</p>
-          <p>15</p>
-        </div>
-      </div>
-  
-    </div>
-    <div class="w-[600px] mt-8 border border-black rounded-md divide-y">
-      <!-- table title -->
-      <div class="flex justify-between py-2 bg-gray-100">
-          <p class="text-gray-500 font-bold pl-3">Day 3 - Leg Day</p>
-          <div class="flex items-center space-x-2">
-            <span class="text-[10px]">4/5 exercises completed</span>
-            <svg class="fill-gray-500 pr-3" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-          </div>
-      </div>
-  
-      <!-- column titles -->
-      <div class="grid grid-cols-4 px-3 py-2">
-        <p class="text-gray-500">ROUTINE</p>
-        <p class="text-gray-500">SETS</p>
-        <p class="text-gray-500">REPS</p>
-        <p class="text-gray-500">Weight</p>
-      </div>
-  
-      <!-- rows -->
-      <div class="divide-y">
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Shoulder Press</p>
-          <p>3</p>
-          <p>10</p>
-          <p>30</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Skull Crushers</p>
-          <p>3</p>
-          <p>10</p>
-          <p>20</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Chest Press</p>
-          <p>4</p>
-          <p>10</p>
-          <p>40</p>
-        </div>
-  
-        <div class="grid grid-cols-4 py-2 px-3">
-          <p><input type="checkbox" name="" id=""> Lu Raises</p>
-          <p>3</p>
-          <p>10</p>
-          <p>15</p>
-        </div>
-      </div>
-  
-    </div>
+  <!-- workout -->  
+  <div>
+    <p><%= @workout.content.gsub(/Day/, "<br>Day").html_safe %></p>
   </div>
-  
   
   <!-- side sheet overlay -->
   <div id="new-workout-plan-sheet-overlay" class="hidden h-screen w-screen absolute top-0 left-0 backdrop-blur-[3px] bg-white/40"></div>
