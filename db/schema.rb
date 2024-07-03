@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_01_181411) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_03_093429) do
   create_table "nutrition_plans", force: :cascade do |t|
     t.decimal "weight"
     t.decimal "height"
@@ -73,8 +73,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_181411) do
     t.index ["user_id"], name: "index_workout_plans_on_user_id"
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_workouts_on_user_id"
+  end
+
   add_foreign_key "nutrition_plans", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "stats", "users"
   add_foreign_key "workout_plans", "users"
+  add_foreign_key "workouts", "users"
 end
