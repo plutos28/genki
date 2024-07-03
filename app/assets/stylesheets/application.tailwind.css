@@ -10,17 +10,15 @@
     font-family: "Titillium Web", system-ui, sans-serif;
   }
 
-  @view-transition {
+@view-transition {
     navigation: auto;
 }
 
-/* Customize the default animation behavior */
 
 ::view-transition-group(root) {
     animation-duration: 0.5s;
 }
 
-/* Create a custom animation */
 
 @keyframes move-out {
     from {
@@ -42,7 +40,6 @@
     }
 }
 
-/* Apply the custom animation to the old and new page states */
 
 ::view-transition-old(root) {
     animation: 0.4s ease-in both move-out;
@@ -51,6 +48,6 @@
 
 ::view-transition-new(root) {
     animation: 0.4s ease-in both move-in;
-}
+} 
 
 }
