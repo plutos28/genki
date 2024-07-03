@@ -1,6 +1,6 @@
 class NutritionController < ApplicationController
   def index
-    @nutritions = Nutrition.all
+    @nutritions = Nutrition.where(user_id: Current.user.id)
   end
 
   def new
