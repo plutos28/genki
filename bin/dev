@@ -17,6 +17,6 @@ export RUBY_DEBUG_LAZY="true"
 redis-server --daemonize yes
 
 # Start Sidekiq
-bundle exec sidekiq -C config/sidekiq.yml &
+bundle exec sidekiq -t 25 -C config/sidekiq.yml &
 
 exec foreman start -f Procfile.dev "$@"

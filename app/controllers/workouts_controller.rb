@@ -38,7 +38,6 @@ class WorkoutsController < ApplicationController
         PROMPT
 
         req = { prompt: @prompt, name: "victor" }
-        GenerateWorkoutPlanJob.perform_later(req, Current.user.id)
         format.html { redirect_to workouts_url, notice: "Workout plan has been successfully saved. Wait for Plan to be generated."}
       else
         format.html { render :new, status: :unprocessable_entity }

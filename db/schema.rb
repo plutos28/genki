@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_03_124028) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_12_075809) do
   create_table "nutrition_plans", force: :cascade do |t|
     t.decimal "weight"
     t.decimal "height"
@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_124028) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
