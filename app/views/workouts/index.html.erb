@@ -20,12 +20,14 @@
   <h1 class="mt-10 mb-4 text-xl font-bold text-black">Your workout plans</h1>
   <div class="flex space-x-2">
     <% @workouts.each_with_index do |workout, i| %>
-      <turbo-frame id="load_workout_plan">
+      <turbo-frame id="load_workout_plan" class="w-72 h-14 py-3 flex flex-col items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
         <%= link_to "Workout #{i+1}",
           workout_path(workout[:id]),
           data: { turbo_frame: 'show_workout_plan'},
-        class: "w-72 h-10 py-3 flex items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" %>
+        class: "" %>
+        <%= link_to 'Delete', workout_path(workout), method: :delete, class: 'btn btn-danger', class: "bg-red-500 rounded-md text-white" %>
       </turbo-frame>
+
     <% end %>
 
     <turbo-frame id="load_workout_sheet">

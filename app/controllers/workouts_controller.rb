@@ -16,28 +16,42 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end
 
+  def destroy
+    @workout = Workout.find(params[:id])
+    @workout.destroy
+    redirect_to workouts_url, notice: 'Workout was successfully destroyed.'
+  end
+
+
   def create
+    sleep(10)
     @workout_plan = WorkoutPlan.new(workout_plan_params)
     @workout_plan.user_id = Current.user.id
 
+    @exercises = [
+      { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: nil },
+      { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 50 },   # Example weight
+      { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: nil },
+      { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 15 }, # Example weight
+      { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 20 }, # Example weight
+      { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 25 },     # Example weight
+      { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: nil },
+      { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 60 }   # Example weight
+    ].freeze
+
+
     respond_to do |format|
       if @workout_plan.save
-        @prompt = <<-PROMPT
-        Create a workout plan(week 1) only in plaintext format based on the following user data Please provide a detailed weekly workout plan including exercises each day(use day 1-7 instead of monday-sunday). DON'T include user_data in the response, just exercises. DON't format json, just single line PROMPT:
-        - Weight: #{@workout_plan[:weight]} kg
-        - Height: #{@workout_plan[:height]} cm
-        - Age: #{@workout_plan[:age]} years
-        - Body Fat: #{@workout_plan[:bodyfat]}%
-        - Lifestyle: #{@workout_plan[:lifestyle]}
-        - Workout Frequency: #{@workout_plan[:frequency]} days per week
-        - Volume: #{@workout_plan[:volume]}
-        - Duration: #{@workout_plan[:duration]} minutes per session
-        - Intensity: #{@workout_plan[:intensity]}
-        - Goal: #{@workout_plan[:goal]}
-        - Type of Training: #{@workout_plan[:type_of_training]}
-        PROMPT
+        
 
-        req = { prompt: @prompt, name: "victor" }
+        @workout = Workout.create(user_id: Current.user.id, status: 'pending')
+        selected_exercises = @exercises.sample(5)
+
+          # Create exercises for the workout
+        selected_exercises.each do |exercise|
+          @workout.exercises.create(exercise)
+        end
+
         format.html { redirect_to workouts_url, notice: "Workout plan has been successfully saved. Wait for Plan to be generated."}
       else
         format.html { render :new, status: :unprocessable_entity }

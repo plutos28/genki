@@ -1,5 +1,13 @@
 <turbo-frame class="" id="show_workout_plan">
   <div class="w-[600px]">
-    <p><%= @workout.content.gsub(/Day/, "<br><br>Day").html_safe %></p>
+    <% @workout.exercises.each do |exercise| %>
+      <div>
+        <h3><%= exercise.name %></h3>
+        <p>Reps: <%= exercise.reps %></p>
+        <p>Sets: <%= exercise.sets %></p>
+        <p>Weight: <%= exercise.sets %></p>
+        <p>Status: <%= exercise.status %></p>
+      </div>
+    <% end %>
   </div>
 </turbo-frame>
