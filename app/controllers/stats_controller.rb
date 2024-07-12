@@ -5,6 +5,7 @@ class StatsController < ApplicationController
     @latest_height = @stats.where(name: 'height').order(created_at: :desc).first
     @latest_age = @stats.where(name: 'age').order(created_at: :desc).first
     @latest_bodyfat = @stats.where(name: 'bodyfat').order(created_at: :desc).first
+    # @latest_gender = @stats.where(name: 'gender').order(created_at: :desc).first
     @stat = Stat.new
   end
 

@@ -8,18 +8,18 @@
     </p>
   <% end %>
 
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-24 w-[1000px]">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-24 w-[1000px]">
     <!-- Weight card -->
     <%= render  "card", stat: @stat, card_name: 'weight', latest_data: @latest_weight, unit: 'kg' %>
 
     <!-- Height card -->
     <%= render  "card", stat: @stat, card_name: 'height', latest_data: @latest_height, unit: 'cm' %>
 
-    <!-- Age card -->
-    <%= render  "card", stat: @stat, card_name: 'age', latest_data: @latest_age, unit: 'years' %>
-
     <!-- Bodyfat card -->
     <%= render  "card", stat: @stat, card_name: 'bodyfat', latest_data: @latest_bodyfat, unit: '%' %>
+
+    <!-- Age card -->
+    <%= render  "card", stat: @stat, card_name: 'age', latest_data: @latest_age, unit: 'years' %>
   <div>
 
   <!-- Graphs -->

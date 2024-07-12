@@ -29,16 +29,54 @@ class WorkoutsController < ApplicationController
     @workout_plan = WorkoutPlan.new(workout_plan_params)
     @workout_plan.user_id = Current.user.id
 
-    @exercises = [
-      { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: nil },
-      { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 50 },   # Example weight
-      { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: nil },
-      { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 15 }, # Example weight
-      { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 20 }, # Example weight
-      { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 25 },     # Example weight
-      { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: nil },
-      { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 60 }   # Example weight
-    ].freeze
+    @exercises = case @workout_plan.goal
+                 when 'lose weight'
+                   [
+                     { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 50 },
+                     { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 15 },
+                     { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 20 },
+                     { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 25 },
+                     { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 60 }
+                   ].select { |e| e[:weight].present? } # Focus on exercises with weights
+                 when 'build muscle'
+                   [
+                     { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: 20 },
+                     { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 70 },
+                     { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: 10 },
+                     { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 25 },
+                     { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 30 },
+                     { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 40 },
+                     { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: 15 },
+                     { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 80 }
+                   ]
+                 when 'maintaining'
+                   [
+                     { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 30 },
+                     { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 10 },
+                     { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 15 },
+                     { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 20 },
+                     { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 50 }
+                   ]
+                 else
+                   # Default list if no goal is selected or recognized
+                   [
+                     { name: 'Push-Up', reps: 10, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Squat', reps: 15, sets: 3, status: 'pending', weight: 50 },
+                     { name: 'Plank', reps: 1, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Bicep Curl', reps: 12, sets: 3, status: 'pending', weight: 15 },
+                     { name: 'Tricep Dip', reps: 12, sets: 3, status: 'pending', weight: 20 },
+                     { name: 'Lunge', reps: 12, sets: 3, status: 'pending', weight: 25 },
+                     { name: 'Crunch', reps: 15, sets: 3, status: 'pending', weight: nil },
+                     { name: 'Deadlift', reps: 10, sets: 3, status: 'pending', weight: 60 }
+                   ]
+                 end
+
 
 
     respond_to do |format|
