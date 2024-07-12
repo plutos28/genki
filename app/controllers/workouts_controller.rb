@@ -14,6 +14,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    @exercises_completed = @workout.exercises.where(status: 'complete').count
   end
 
   def destroy

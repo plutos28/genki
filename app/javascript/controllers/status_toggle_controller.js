@@ -24,6 +24,7 @@ export default class extends Controller {
         this.checkboxTarget.checked = newStatus === 'complete';
       } else {
         console.error("Failed to update status");
+        this.checkboxTarget.checked = !checkbox.checked;
       }
     });
   }
