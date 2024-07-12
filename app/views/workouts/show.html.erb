@@ -20,7 +20,14 @@
     <div class="divide-y">
     <% @workout.exercises.each do |exercise| %>
       <div class="grid grid-cols-5 py-2 px-3">
-        <h3 class="space-x-2"><input type="checkbox" name="" id=""><%= exercise.name %></h3>
+        <h3 class="space-x-2">
+          
+          <%= form_with url: update_status_exercise_path(exercise), method: :patch, data: { controller: "status-toggle", status_toggle_url: update_status_exercise_path(exercise) } do %>
+            <%= hidden_field_tag :status, exercise.status %>
+            <%= check_box_tag :status, exercise.status == 'complete' ? 'pending' : 'complete', exercise.status == 'complete', data: { target: "status-toggle.checkbox", action: "change->status-toggle#toggle" } %>
+            <%= label_tag :status, exercise.status == 'complete' ? 'Mark as Pending' : 'Mark as Complete' %>
+          <% end %>
+          <%= exercise.name %></h3>
         <p><%= exercise.reps %></p>
         <p><%= exercise.sets %></p>
         <p><%= exercise.sets %></p>

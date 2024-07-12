@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   resources :stats 
   resources :tools
   resources :coach
+  resources :exercises do
+  patch :update_status, on: :member
+end
+
 
   get "statsdata", to: 'stats#statsdata'
   get "reminders", to: 'coach#reminders'
+
 end
