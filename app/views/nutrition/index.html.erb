@@ -4,7 +4,7 @@
   <p class="mb-8 text-gray-700">Enter your basic details below. We will utilize this information to create your workout and nutrition plans.</p>
 
   <div class="border-b -ml-10 pl-10 pb-0.5 space-x-6">
-    <a href="<%= workouts_path %>" class="px-20 text-xl -pb-2">Workout</a>
+    <a href="<%= workouts_path %>" class="text-gray-500 px-20 text-xl -pb-2 hover:text-black">Workout</a>
     <a href="<%= nutrition_index_path %>" class="px-20 text-xl text-purple-300 font-bold border-b border-purple-300 border-b-2">Nutrition</a>
   </div>
 
@@ -14,8 +14,20 @@
     </p>
   <% end %>
 
-  <!-- workouts list -->
-  <h1 class="mt-10 mb-4 text-xl font-bold text-black">Your nutrition plans</h1>
+  <!-- nutrition plans list -->
+  <div class="mt-10 mb-4 pr-6 flex items-start justify-between w-full">
+    <h1 class="text-3xl text-gray-800 capitalize">Your nutrition plans</h1>
+
+    <turbo-frame id="load_workout_sheet">
+      <div class="w-52 h-16 py-3 flex items-center justify-center rounded-lg border-2 border-dashed border-purple-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-[1.09] transition duration-150 ease-in-out">
+        <%= link_to "Add plan",
+        new_nutrition_path,
+        data: { turbo_frame: 'add_nutrition_form', controller: 'add-workout-plan'},
+        class: 'text-2xl text-purple-600' %>
+      </div>
+    </turbo-frame>
+  </div>
+
   <div class="flex space-x-2">
     <% @nutritions.each_with_index do |nutrition, i| %>
       <turbo-frame id="load_workout_plan">
@@ -25,16 +37,6 @@
         class: "w-72 h-10 py-3 flex items-center justify-center rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" %>
       </turbo-frame>
     <% end %>
-
-    <turbo-frame id="load_workout_sheet">
-      <div class="w-32 h-10 py-3 flex items-center justify-center rounded-lg border-2 border-dashed border-purple-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-        <%= link_to "Add plan",
-        new_nutrition_path,
-        data: { turbo_frame: 'add_nutrition_form', controller: 'add-workout-plan'},
-        class: 'text-lg text-purple-600' %>
-      </div>
-
-    </turbo-frame>
   </div>
 
   <turbo-frame class="" id="show_nutrition_plan"></turbo-frame>
