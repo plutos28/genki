@@ -1,13 +1,11 @@
 <div>
-  <!-- segmented button -->
-  <div class="grid grid-cols-2 rounded-md border-solid border border-black divide-x divide-black w-80 h-8">
-    <a href="<%= workouts_path %>" class="flex justify-center space-x-2 items-center bg-gray-200 rounded-l-md">
-      <svg class="fill-gray-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>
-      <p class="text-lg text-gray-600">Workout</p>
-    </a>
-    <a href="<%= nutrition_index_path %>" class="flex justify-center space-x-2 items-center">
-      <p class="text-lg">Nutrition</p>
-    </a>
+  <!-- header text -->
+  <h1 class="font-bold text-3xl mb-1">Plans</h1>
+  <p class="mb-8 text-gray-700">Enter your basic details below. We will utilize this information to create your workout and nutrition plans.</p>
+
+  <div class="border-b -ml-10 pl-10 pb-0.5 space-x-6">
+    <a href="<%= workouts_path %>" class="px-20 text-xl text-orange-300 font-bold border-b border-orange-300 border-b-2">Workout</a>
+    <a href="<%= nutrition_index_path %>" class="px-20 text-xl -pb-2">Nutrition</a>
   </div>
 
   <% if notice.present? %>
@@ -37,20 +35,20 @@
         data: { turbo_frame: 'add_workout_form', controller: 'add-workout-plan'},
         class: 'text-lg text-orange-600' %>
       </div>
-      
+
     </turbo-frame>
   </div>
 
-  
-  <!-- workout -->  
+
+  <!-- workout -->
   <turbo-frame class="" id="show_workout_plan"></turbo-frame>
-  
+
   <!-- side sheet overlay -->
   <div id="new-workout-plan-sheet-overlay" class="hidden h-screen w-screen absolute top-0 left-0 backdrop-blur-[3px] bg-white/40"></div>
   <!-- side sheet -->
   <div id="new-workout-plan-sheet" class="hidden px-4 py-6 flex flex-col h-screen absolute top-0 right-0 w-3/6 lg:w-2/5 bg-white shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-    <h1 class="text-2xl font-bold mb-1">Add new workout plan</h1> 
-    <h1 class="text-lg mb-8 text-gray-500">Fill the form to get a personalized workout plan.</h1> 
+    <h1 class="text-2xl font-bold mb-1">Add new workout plan</h1>
+    <h1 class="text-lg mb-8 text-gray-500">Fill the form to get a personalized workout plan.</h1>
     <turbo-frame class="" id="add_workout_form"></turbo-frame>
   </div>
 </div>
