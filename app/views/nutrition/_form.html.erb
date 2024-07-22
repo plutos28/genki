@@ -17,7 +17,7 @@
   <%= form.hidden_field :bodyfat, value: latest_bodyfat.value %>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :goal, "Goal", class: "text-xl" %>
+    <%= form.label :goal, "What's your goal?", class: "text-xl" %>
     <%= form.select :goal, options_for_select([
       ['Lose Weight', 'lose weight'],
       ['Gain Weight', 'gain_ eight'],
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :lifestyle, "Lifestyle", class: "text-xl" %>
+    <%= form.label :lifestyle, "How active are you currently?", class: "text-xl" %>
     <%= form.select :lifestyle, options_for_select([
       ['Sedentary (little or no exercise)', 'sedentary'],
       ['Light Exercise (1-3 days/week)', 'light exercise'],
@@ -38,7 +38,7 @@
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :protein, "Protein", class: "text-xl" %>
+    <%= form.label :protein, "How much protein do you want?", class: "text-xl" %>
     <%= form.select :protein, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
@@ -47,7 +47,7 @@
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :fat, "Fat", class: "text-xl" %>
+    <%= form.label :fat, "How much fat do you want?", class: "text-xl" %>
     <%= form.select :fat, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
@@ -56,7 +56,7 @@
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :carb, "Carb", class: "text-xl" %>
+    <%= form.label :carb, "How many carbs do you want?", class: "text-xl" %>
     <%= form.select :carb, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
