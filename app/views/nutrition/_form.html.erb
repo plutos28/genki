@@ -17,51 +17,51 @@
   <%= form.hidden_field :bodyfat, value: latest_bodyfat.value %>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :goal, "What's your goal?", class: "text-xl" %>
+    <%= form.label :goal, "What's your goal?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :goal, options_for_select([
       ['Lose Weight', 'lose weight'],
       ['Gain Weight', 'gain_ eight'],
       ['Build Muscle', 'build muscle'],
       ['Maintain Weight', 'maintain weight'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :lifestyle, "How active are you currently?", class: "text-xl" %>
+    <%= form.label :lifestyle, "How active are you currently?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :lifestyle, options_for_select([
       ['Sedentary (little or no exercise)', 'sedentary'],
       ['Light Exercise (1-3 days/week)', 'light exercise'],
       ['Moderate Exercise (3-5 days/week)', 'moderate exercise'],
       ['Heavy Exercise (6-7 days/week)', 'heavy exercise'],
       ['Elite Athlete (very hard exercise/physical job)', 'elite athlete']
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :protein, "How much protein do you want?", class: "text-xl" %>
+    <%= form.label :protein, "How much protein do you want?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :protein, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
       ['High', 'high'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :fat, "How much fat do you want?", class: "text-xl" %>
+    <%= form.label :fat, "How much fat do you want?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :fat, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
       ['High', 'high'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-4">
-    <%= form.label :carb, "How many carbs do you want?", class: "text-xl" %>
+    <%= form.label :carb, "How many carbs do you want?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :carb, options_for_select([
       ['Low', 'low'],
       ['Moderate', 'moderate'],
       ['High', 'high'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="w-full flex justify-end actions space-x-4">

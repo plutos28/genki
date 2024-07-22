@@ -17,35 +17,35 @@
   <%= form.hidden_field :bodyfat, value: latest_bodyfat.value %>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :goal, "What's your goal?" %>
+    <%= form.label :goal, "What's your goal?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :goal, options_for_select([
       ['Lose Weight', 'lose weight'],
       ['Build Muscle', 'build muscle'],
       ['Increase Endurance', 'increase endurance'],
       ['Improve Flexibility', 'improve_ lexibility'],
       ['Maintain Fitness', 'maintain fitness'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :lifestyle, "How active are you currently?" %>
+    <%= form.label :lifestyle, "How active are you currently?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :lifestyle, options_for_select([
       ['Sedentary (little or no exercise)', 'sedentary'],
       ['Light Exercise (1-3 days/week)', 'light exercise'],
       ['Moderate Exercise (3-5 days/week)', 'moderate exercise'],
       ['Heavy Exercise (6-7 days/week)', 'heavy exercise'],
       ['Elite Athlete (very hard exercise/physical job)', 'elite athlete']
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
    <div class="field flex flex-col mb-2">
-    <%= form.label :frequency, "How often do you want to work out?" %>
+    <%= form.label :frequency, "How often do you want to work out?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :frequency, options_for_select([
       ['1-2 days a week', '1-2'],
       ['3-4 days a week', '3-4'],
       ['5-6 days a week', '5-6'],
       ['Every day', '7']
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <!-- <div class="field flex flex-col mb-2">
@@ -58,43 +58,38 @@
   </div> -->
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :duration, "How long do you want each workout session to be?" %>
+    <%= form.label :duration, "How long do you want each workout session to be?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :duration, options_for_select([
       ['15-30 minutes', '15-30'],
       ['30-45 minutes', '30-45'],
       ['45-60 minutes', '45-60'],
       ['60+ minutes', '60+']
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :intensity, "How intense do you want your workouts to be?" %>
+    <%= form.label :intensity, "How intense do you want your workouts to be?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :intensity, options_for_select([
       ['Low(Light effort, easy pace)', 'low'],
       ['Moderate(Moderate effort, can hold a conversation)', 'moderate'],
       ['High(Hard effort, challenging pace)', 'high']
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
   <div class="field flex flex-col mb-2">
-    <%= form.label :type_of_training, "What type of training do you prefer?" %>
+    <%= form.label :type_of_training, "What type of training do you prefer?", class: "text-xl mb-2 text-gray-700" %>
     <%= form.select :type_of_training, options_for_select([
       ['Home Training', 'home_training'],
       ['Gym', 'gym'],
       ['Outdoor', 'outdoor'],
       ['Sports', 'sports'],
-    ]) %>
+    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
 
-  <div class="actions">
-    <%
-=begin%>
- <%= form.submit "Generate", class: 'hover:scale-2 mt-1 rounded-md w-28 bg-blue-400 px-2 py-1 text-white' %>
-<%
-=end%>
-    <%= button_tag(type: 'submit', class: 'flex items-center hover:scale-2 mt-1 rounded-md w-32 bg-blue-400 px-2 py-2 text-white', data: {controller: "add-workout-plan"
-}) do %>
+  <div class="w-full flex justify-end actions space-x-4">
+    <button class="font-bold flex justify-center hover:scale-2 mt-1 rounded-md w-32 bg-white px-2 py-2 text-black text-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">Cancel</button>
+    <%= button_tag(type: 'submit', class: 'flex justify-center hover:scale-2 mt-1 rounded-md w-32 bg-orange-400 px-2 py-2 text-white text-xl font-bold shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]', data: {controller: "add-workout-plan" }) do %>
       <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"></path></svg>
       Generate
     <% end %>
