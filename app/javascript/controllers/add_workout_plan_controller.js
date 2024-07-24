@@ -21,7 +21,15 @@ export default class extends Controller {
       sheet.classList.add('hidden');
     })
 
-    if(this.element.tagName === 'BUTTON') {
+    if(this.element.tagName === 'BUTTON' && this.element.type === 'button') {
+      this.element.addEventListener('click', (e) => {
+        console.log('close sheet');
+        sheetOverlay.classList.add('hidden');
+        sheet.classList.add('hidden');
+      })
+    }
+
+    if(this.element.tagName === 'BUTTON' && this.element.type === 'submit') {
       this.element.addEventListener('click', (e) => {
         console.log('close sheet');
         sheetOverlay.classList.add('hidden');
