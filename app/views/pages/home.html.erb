@@ -1,5 +1,5 @@
-<div class="-mt-12 -ml-10">
-  <nav class="w-screen border-b py-5 px-6 flex justify-between items-center">
+<div class="pl-[30rem] pr-[30rem] -mt-12 -ml-10">
+  <nav class="w-full border-b py-5 px-6 flex justify-between items-center">
     <%= link_to 'GENKi', root_path, class: "font-madimi font-bold text-4xl text-[#183452]" %>
     <div class="space-x-6">
         <a href="" class="text-gray-700">Home</a>
@@ -18,42 +18,42 @@
   </div>
 
   <!-- section 1 -->
-  <div class="flex flex-col items-center mt-48 py-24 w-screen h-[40rem] bg-slate-100">
-    <h1 class="text-center text-4xl mb-6 text-[#183452] font-bold w-3/4">Tailored Fitness and Nutrition, Powered by AI</h1>
-    <p class="text-2xl mb-6 text-gray-700">Personalized plans that adapt to your progress.</p>
+  <div class="flex flex-col items-center mt-48 py-24 w-full h-[40rem] bg-slate-100 rounded-xl">
+    <h1 class="text-center text-4xl mb-6 text-indigo-500 font-bold w-3/4">Achieve Your Fitness Goals</h1>
+    <p class="text-2xl mb-6 text-indigo-700">Empowering Your Fitness Journey Through Personalized Paths to Success</p>
     <%= image_tag 'home1.jpg', alt: 'Person working out', class: 'w-96 h-96 rounded-lg' %>
   </div>
 
   <!-- section 2 -->
-  <div class="flex flex-col items-center pt-24 w-screen h-[34rem] bg-slate-100">
+  <div class="flex flex-col items-center py-24 w-full h-[40rem]">
     <div class="mx-10 bg-white flex items-center rounded-xl">
         <div class="pl-8 py-10">
             <div class="bg-blue-100 w-12 h-12 flex items-center justify-center mb-6 rounded-xl">
                 <svg class="fill-blue-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M200,64V192a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V136H104v56a16,16,0,0,1-16,16H72a16,16,0,0,1-16-16V64A16,16,0,0,1,72,48H88a16,16,0,0,1,16,16v56h48V64a16,16,0,0,1,16-16h16A16,16,0,0,1,200,64ZM36,72H32A16,16,0,0,0,16,88v32H8.27A8.18,8.18,0,0,0,0,127.47,8,8,0,0,0,8,136h8v32a16,16,0,0,0,16,16h4a4,4,0,0,0,4-4V76A4,4,0,0,0,36,72Zm220,55.47a8.18,8.18,0,0,0-8.25-7.47H240V88a16,16,0,0,0-16-16h-4a4,4,0,0,0-4,4V180a4,4,0,0,0,4,4h4a16,16,0,0,0,16-16V136h8A8,8,0,0,0,256,127.47Z"></path></svg>
             </div>
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">Say <span class="text-blue-500">"Cheese"</span></h1>
-            <p class="text-gray-600 w-96 text-xl">Arrange windows to their perfect positions and save their positions with a click.</p>
+            <h1 class="text-4xl font-bold text-blue-500 mb-2">Personalized Workout & Nutrition Plans</span></h1>
+            <p class="text-gray-600 w-96 text-xl">Workouts and Meals Aligned with Your Preferences.</p>
         </div>
         <%= image_tag 'home2.jpg', alt: 'Person working out', class: 'w-100 h-96 my-10 ml-4 mr-10 rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]' %>
     </div>
   </div>
 
   <!-- section 3 -->
-  <div class="flex flex-col w-screen h-[50rem] bg-gray-100">
+  <div class="flex flex-col w-full h-[50rem] bg-gray-100 rounded-xl">
     <div class="mx-10 my-10 bg-white flex flex-col items-center rounded-xl">
         <div class="pl-8 py-10">
             <div class="bg-purple-100 w-12 h-12 flex items-center justify-center mb-6 rounded-xl">
                 <svg class="fill-purple-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#000000" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM200,192H56a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v76.69l34.34-34.35a8,8,0,0,1,11.32,0L128,132.69,172.69,88H144a8,8,0,0,1,0-16h48a8,8,0,0,1,8,8v48a8,8,0,0,1-16,0V99.31l-50.34,50.35a8,8,0,0,1-11.32,0L104,131.31l-40,40V176H200a8,8,0,0,1,0,16Z"></path></svg>
             </div>
-            <h1 class="text-4xl font-bold text-purple-500 mb-2">Say "Cheese"</h1>
-            <p class="text-gray-600 w-96 text-xl">Arrange windows to their perfect positions and save their positions with a click.</p>
+            <h1 class="text-4xl font-bold text-purple-500 mb-2">Track Your Progress</h1>
+            <p class="text-gray-600 w-96 text-xl">Monitor Your Fitness Journey and Stay on Top of Your Goals.</p>
         </div>
         <%= image_tag 'home3.jpg', alt: 'Person working out', class: 'w-100 h-96 my-10 ml-4 mr-10 rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]' %>
     </div>
   </div>
 
   <!-- footer -->
-  <nav class="w-screen mb-2 border-t py-8 px-10 flex justify-between items-center">
+  <nav class="w-full mb-2 border-t py-8 px-10 flex justify-between items-center">
     <a href="#" class="font-madimi font-bold text-4xl text-[#183452]">GENKi</a>
     <div class="space-x-6">
         <a href="" class="text-gray-700">Home</a>
