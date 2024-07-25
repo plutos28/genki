@@ -26,16 +26,6 @@
     ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
   </div>
 
-  <div class="field flex flex-col mb-4">
-    <%= form.label :lifestyle, "How active are you currently?", class: "text-xl mb-2 text-gray-700" %>
-    <%= form.select :lifestyle, options_for_select([
-      ['Sedentary (little or no exercise)', 'sedentary'],
-      ['Light Exercise (1-3 days/week)', 'light exercise'],
-      ['Moderate Exercise (3-5 days/week)', 'moderate exercise'],
-      ['Heavy Exercise (6-7 days/week)', 'heavy exercise'],
-      ['Elite Athlete (very hard exercise/physical job)', 'elite athlete']
-    ]), {}, { class: "rounded-lg py-4 text-2xl text-gray-900"} %>
-  </div>
 
   <div class="field flex flex-col mb-4">
     <%= form.label :protein, "How much protein do you want?", class: "text-xl mb-2 text-gray-700" %>

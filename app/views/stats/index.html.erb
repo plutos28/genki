@@ -7,7 +7,7 @@
   <h1 class="font-bold text-3xl mb-1">Stats</h1>
   <p class="mb-8 text-gray-700">Enter your basic details below. We will utilize this information to create your workout and nutrition plans.</p>
 
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-24 w-[1000px]">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-6 md:gap-24 w-[1600px]">
     <!-- Weight card -->
     <%= render  "card", stat: @stat, card_name: 'weight', latest_data: @latest_weight, unit: 'kg' %>
 
@@ -19,6 +19,53 @@
 
     <!-- Age card -->
     <%= render  "card", stat: @stat, card_name: 'age', latest_data: @latest_age, unit: 'years' %>
+
+    <!-- lifestyle card -->
+    <div class="bg-gray-100 w-64 h-38 rounded-md p-3">
+      <h1 class="text-md text-gray-600 capitalize">Lifestyle</h1>
+      <% unless @latest_lifestyle.nil? %>
+      <p class="mt-2 text-lg capitalize"><%= "#{@latest_lifestyle.value}" %></p>
+      <% else %>
+      <p class="mt-2 text-lg">N/A</p>
+      <% end %>
+      <%= form_with(model: @stat) do |form| %>
+        <%= form.hidden_field :name, value: "lifestyle" %>
+        <%= form.select :value, options_for_select([
+          ['Sedentary (little or no exercise)', 'sedentary'],
+          ['Light Exercise (1-3 days/week)', 'light exercise'],
+          ['Moderate Exercise (3-5 days/week)', 'moderate exercise'],
+          ['Heavy Exercise (6-7 days/week)', 'heavy exercise'],
+          ['Elite Athlete (very hard exercise/physical job)', 'elite athlete']
+        ]), {}, { class: "rounded-md w-52"} %>
+        <%= form.hidden_field :unit, value: "unit"  %>
+        <div>
+          <%= form.submit "Save", class: 'hover:scale-2 mt-1 rounded-md w-28 bg-blue-400 px-2 py-1 text-white' %>
+          <!-- <button class="hover:scale-2 mt-1 rounded-md w-28 bg-gray-400 px-2 py-1 text-gray-800">History</button> -->
+        </div>
+      <% end %>
+    </div>
+
+    <!-- gender card -->
+    <div class="bg-gray-100 w-64 h-38 rounded-md p-3">
+      <h1 class="text-md text-gray-600 capitalize">Gender</h1>
+      <% unless @latest_gender.nil? %>
+      <p class="mt-2 text-lg capitalize"><%= "#{@latest_gender.value}" %></p>
+      <% else %>
+      <p class="mt-2 text-lg">N/A</p>
+      <% end %>
+      <%= form_with(model: @stat) do |form| %>
+        <%= form.hidden_field :name, value: "gender" %>
+        <%= form.select :value, options_for_select([
+          ['Male', 'male'],
+          ['Female', 'female'],
+        ]), {}, { class: "rounded-md w-52"} %>
+        <%= form.hidden_field :unit, value: "unit"  %>
+        <div>
+          <%= form.submit "Save", class: 'hover:scale-2 mt-1 rounded-md w-28 bg-blue-400 px-2 py-1 text-white' %>
+          <!-- <button class="hover:scale-2 mt-1 rounded-md w-28 bg-gray-400 px-2 py-1 text-gray-800">History</button> -->
+        </div>
+      <% end %>
+    </div>
   <div>
 
   <!-- Graphs -->
