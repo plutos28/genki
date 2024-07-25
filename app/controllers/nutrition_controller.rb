@@ -12,6 +12,12 @@ class NutritionController < ApplicationController
     @latest_bodyfat = @stats.where(name: 'bodyfat').order(created_at: :desc).first
   end
 
+  def destroy
+    @nutrition = Nutrition.find(params[:id])
+    @nutrition.destroy
+    redirect_to nutrition_url, notice: 'Nutrition plan was successfully destroyed.'
+  end
+
   def show
     @nutrition = Nutrition.find(params[:id])
 
@@ -71,7 +77,7 @@ class NutritionController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def nutrition_plan_params
     params.require(:nutrition_plan).permit(:weight, :height, :age, :bodyfat, :lifestyle, :protein, :fat, :carb, :goal)

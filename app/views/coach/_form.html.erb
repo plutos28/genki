@@ -1,0 +1,34 @@
+<h1>Exercise Assistance Form</h1>
+  <form action="/exercise_assistances" method="post">
+    <!-- CSRF Token -->
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <div class="field">
+      <label for="exercise_assistance_exercise">Select Exercise</label>
+      <select name="exercise_assistance[exercise]" id="exercise_assistance_exercise">
+        <option value="Squat">Squat</option>
+        <option value="Bench Press">Bench Press</option>
+        <option value="Deadlift">Deadlift</option>
+        <option value="Pull-Up">Pull-Up</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="exercise_assistance_issue">Select Issue</label>
+      <select name="exercise_assistance[issue]" id="exercise_assistance_issue">
+        <option value="Discomfort">Discomfort</option>
+        <option value="Pain">Pain</option>
+        <option value="Lack of mobility">Lack of mobility</option>
+        <option value="Technique issues">Technique issues</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="exercise_assistance_details">Extra Details</label>
+      <textarea name="exercise_assistance[details]" id="exercise_assistance_details"></textarea>
+    </div>
+
+    <div class="actions">
+      <input type="submit" name="commit" value="Ask Question">
+    </div>
+  </form>
