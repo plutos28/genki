@@ -25,7 +25,7 @@ class WorkoutsController < ApplicationController
 
 
   def create
-    sleep(10)
+    # sleep(10) # simulate AI working to generate a workout plan
     @workout_plan = WorkoutPlan.new(workout_plan_params)
     @workout_plan.user_id = Current.user.id
 
@@ -81,7 +81,7 @@ class WorkoutsController < ApplicationController
 
     respond_to do |format|
       if @workout_plan.save
-        
+
 
         @workout = Workout.create(user_id: Current.user.id, status: 'pending')
         selected_exercises = @exercises.sample(5)
@@ -98,7 +98,7 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def workout_plan_params
     params.require(:workout_plan).permit(:weight, :height, :age, :bodyfat, :lifestyle, :frequency, :volume, :duration, :intensity, :goal, :type_of_training)
