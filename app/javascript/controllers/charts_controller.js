@@ -3,9 +3,11 @@ import ApexCharts from 'apexcharts'
 
 // Connects to data-controller="charts"
 export default class extends Controller {
-  connect() {
-    console.log(this.element);
 
+  initialize() {
+  }
+
+  connect() {
     let weightData;
     let bodyfatData;
 
@@ -97,5 +99,8 @@ export default class extends Controller {
       })
       .catch(error => console.error('Error fetching stats data:', error));
 
+  }
+
+  disconnect() {
   }
 }
