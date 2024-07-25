@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :workouts
+  resources :progress
   resources :nutrition
   resources :stats
   resources :tools
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
 
   get "statsdata", to: 'stats#statsdata'
   get "reminders", to: 'coach#reminders'
+  get "workout_progress", to: 'progress#workout'
 
   # pages
   # get "home"
