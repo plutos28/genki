@@ -28,7 +28,7 @@
     </turbo-frame>
   </div>
 
-  <div class="flex space-x-2">
+  <turbo-frame id="nutritions" class="flex space-x-2">
     <% @nutritions.each_with_index do |nutrition, i| %>
       <turbo-frame id="load_workout_plan" class="w-72 h-10 py-6 px-4 flex items-center justify-between rounded-lg border border-gray-500 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
         <%= link_to "Nutrition Plan #{i+1}",
@@ -38,7 +38,10 @@
         <%= link_to 'Delete', nutrition_path(nutrition), method: :delete,  class: "bg-red-400 rounded-md text-white py-2 px-4" %>
       </turbo-frame>
     <% end %>
-  </div>
+  </turbo-frame>
+
+  <%# subscribe to the nutritions turbo stream %>
+  <%= turbo_stream_from "nutritions" %>
 
   <turbo-frame class="" id="show_nutrition_plan"></turbo-frame>
 

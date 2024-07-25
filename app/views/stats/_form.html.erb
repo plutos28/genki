@@ -1,6 +1,6 @@
 <%= form_with(model: stat) do |form| %>
   <%= form.hidden_field :name, value: name %>
-  <%= form.number_field :value, placeholder: unit, class: 'rounded-md' %>
+  <%= form.number_field :value, placeholder: unit, class: 'rounded-md', step: "0.01" %>
   <%= form.hidden_field :unit, value: unit  %>
   <div>
     <%= form.submit "Save", class: 'hover:scale-2 mt-1 rounded-md w-28 bg-blue-400 px-2 py-1 text-white' %>
