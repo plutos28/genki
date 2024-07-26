@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_26_011707) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_26_021248) do
   create_table "calorie_trackings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "nutrition_plan_id", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_26_011707) do
     t.text "extra_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "response"
     t.index ["user_id"], name: "index_exercise_assistance_requests_on_user_id"
   end
 
