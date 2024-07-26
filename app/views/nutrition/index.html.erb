@@ -35,6 +35,7 @@
           nutrition_path(nutrition[:id]),
           data: { turbo_frame: 'show_nutrition_plan'},
         class: "" %>
+        <%= link_to 'Activate', activate_nutrition_path(nutrition), method: :patch, data: { confirm: 'Are you sure you want to activate this nutrition goal?'},  class: "bg-green-400 rounded-md text-white py-2 px-4" %>
         <%= link_to 'Delete', nutrition_path(nutrition), method: :delete,  class: "bg-red-400 rounded-md text-white py-2 px-4" %>
       </turbo-frame>
     <% end %>

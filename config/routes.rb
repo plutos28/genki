@@ -16,7 +16,11 @@ Rails.application.routes.draw do
 
   resources :workouts
   resources :progress
-  resources :nutrition
+  resources :nutrition do
+    member do
+      patch :activate
+    end
+  end
   resources :stats
   resources :tools
   resources :coach

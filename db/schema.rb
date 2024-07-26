@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_25_212540) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_26_004939) do
+  create_table "calorie_trackings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "nutrition_plan_id", null: false
+    t.integer "nutrition_id", null: false
+    t.integer "calories"
+    t.float "protein"
+    t.float "fat"
+    t.float "carbs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nutrition_id"], name: "index_calorie_trackings_on_nutrition_id"
+    t.index ["nutrition_plan_id"], name: "index_calorie_trackings_on_nutrition_plan_id"
+    t.index ["user_id"], name: "index_calorie_trackings_on_user_id"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.integer "reps"
@@ -44,6 +59,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_25_212540) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "activate"
+    t.integer "nutrition_plan_id"
+    t.index ["nutrition_plan_id"], name: "index_nutritions_on_nutrition_plan_id"
     t.index ["user_id"], name: "index_nutritions_on_user_id"
   end
 
@@ -102,8 +120,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_25_212540) do
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
+  add_foreign_key "calorie_trackings", "nutrition_plans"
+  add_foreign_key "calorie_trackings", "nutritions"
+  add_foreign_key "calorie_trackings", "users"
   add_foreign_key "exercises", "workouts"
   add_foreign_key "nutrition_plans", "users"
+  add_foreign_key "nutritions", "nutrition_plans"
   add_foreign_key "nutritions", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "stats", "users"

@@ -2,6 +2,20 @@ class ProgressController < ApplicationController
   def index
     # for calories
     @tdee = calculate_tdee
+    @current_nutrition = Nutrition.where(activate: true).order(created_at: :desc).first
+    @current_nutrition_plan = NutritionPlan.find(@current_nutrition.nutrition_plan_id)
+    @daily_calorie_goal = case @current_nutrition_plan.goal.downcase
+      when 'lose weight'
+        @tdee - 500 # Caloric deficit for weight loss
+      when 'gain weight'
+        @tdee + 500 # Caloric surplus for weight gain
+      when 'build muscle'
+        @tdee + 250 # Caloric surplus for muscle building
+      when 'maintain weight'
+        @tdee # No change for maintenance
+      else
+        @tdee # Default to no change if goal is unknown
+      end
   end
 
   def calculate_tdee

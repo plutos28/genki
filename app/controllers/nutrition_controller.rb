@@ -12,6 +12,20 @@ class NutritionController < ApplicationController
     @latest_bodyfat = @stats.where(name: 'bodyfat').order(created_at: :desc).first
   end
 
+  def activate
+    # Deactivate all other nutrition goals for the user
+    Current.user.nutritions.update_all(activate: false)
+
+    @nutrition = Nutrition.find(params[:id])
+
+    # Activate the selected nutrition goal
+    if @nutrition.update(activate: true)
+      redirect_to nutrition_path, notice: 'Nutrition goal was successfully activated.'
+    else
+      redirect_to nutrition_path, alert: 'Failed to activate the nutrition goal.'
+    end
+  end
+
   def destroy
     @nutrition = Nutrition.find(params[:id])
     @nutrition.destroy
@@ -69,7 +83,7 @@ class NutritionController < ApplicationController
         PROMPT
 
         req = { prompt: @prompt }
-        GenerateNutritionPlanJob.perform_later(req, Current.user.id)
+        GenerateNutritionPlanJob.perform_later(req, Current.user.id, @nutrition_plan.id)
         format.html { redirect_to nutrition_index_url, notice: "Nutrition plan has been successfully generated"}
       else
         format.html { render :new, status: :unprocessable_entity }

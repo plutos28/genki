@@ -1,7 +1,7 @@
 class GenerateNutritionPlanJob < ApplicationJob
   queue_as :default
 
-  def perform(data, user_id)
+  def perform(data, user_id, plan_id)
     uri = URI("http://localhost:11434/api/generate")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri, "Content-Type" => "application/json")
@@ -15,6 +15,7 @@ class GenerateNutritionPlanJob < ApplicationJob
     response = JSON.parse(response.body)
     logger.info {response["response"]}
 
-    Nutrition.create!(user_id: user_id, content: response["response"])
+    Nutrition.create!(user_id: user_id, content: response["response"], nutrition_plan_id: plan_id)
   end
 end
+
