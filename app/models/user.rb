@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :workouts
   has_many :nutritions
+  has_many :calorie_trackings
+  has_many :exercise_assistance_requests
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, allow_nil: true, length: { minimum: 8 }

@@ -1,0 +1,29 @@
+<h1 class="text-2xl">New Calorie Information</h1>
+
+<form action="/progress/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div class="field">
+    <label for="calorie_tracking_calories">Calories</label>
+    <input type="number" name="calorie_tracking[calories]" id="calorie_tracking_calories" required>
+  </div>
+
+  <div class="field">
+    <label for="calorie_tracking_protein">Protein (g)</label>
+    <input type="number" step="0.1" name="calorie_tracking[protein]" id="calorie_tracking_protein" value="0.0">
+  </div>
+
+  <div class="field">
+    <label for="calorie_tracking_fat">Fat (g)</label>
+    <input type="number" step="0.1" name="calorie_tracking[fat]" id="calorie_tracking_fat" value="0.0">
+  </div>
+
+  <div class="field">
+    <label for="calorie_tracking_carbs">Carbs (g)</label>
+    <input type="number" step="0.1" name="calorie_tracking[carbs]" id="calorie_tracking_carbs" value="0.0">
+  </div>
+
+  <div class="actions">
+    <button type="submit">Submit</button>
+  </div>
+</form>

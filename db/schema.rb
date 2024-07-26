@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_26_004939) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_26_011707) do
   create_table "calorie_trackings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "nutrition_plan_id", null: false
@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_26_004939) do
     t.index ["nutrition_id"], name: "index_calorie_trackings_on_nutrition_id"
     t.index ["nutrition_plan_id"], name: "index_calorie_trackings_on_nutrition_plan_id"
     t.index ["user_id"], name: "index_calorie_trackings_on_user_id"
+  end
+
+  create_table "exercise_assistance_requests", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "exercise"
+    t.string "issue"
+    t.text "extra_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_exercise_assistance_requests_on_user_id"
   end
 
   create_table "exercises", force: :cascade do |t|
@@ -123,6 +133,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_26_004939) do
   add_foreign_key "calorie_trackings", "nutrition_plans"
   add_foreign_key "calorie_trackings", "nutritions"
   add_foreign_key "calorie_trackings", "users"
+  add_foreign_key "exercise_assistance_requests", "users"
   add_foreign_key "exercises", "workouts"
   add_foreign_key "nutrition_plans", "users"
   add_foreign_key "nutritions", "nutrition_plans"

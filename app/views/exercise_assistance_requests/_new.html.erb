@@ -1,0 +1,22 @@
+<h1>Request Assistance</h1>
+
+<%= form_with(model: exercise_assistance_request, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :exercise %>
+    <%= form.select :exercise, options_for_select(['Push-up', 'Squat', 'Deadlift', 'Bench Press', 'Lunge']), { prompt: 'Select an exercise' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :issue %>
+    <%= form.text_field :issue, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :extra_info %>
+    <%= form.text_area :extra_info %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit Request' %>
+  </div>
+<% end %>

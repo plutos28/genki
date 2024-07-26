@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
   end
 
+  resources :exercise_assistance_requests
 
   get "statsdata", to: 'stats#statsdata'
   get "reminders", to: 'coach#reminders'

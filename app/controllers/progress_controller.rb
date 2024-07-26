@@ -16,6 +16,12 @@ class ProgressController < ApplicationController
       else
         @tdee # Default to no change if goal is unknown
       end
+
+    @calorie_trackings = Current.user.calorie_trackings.order(date: :desc)
+  end
+
+  def new
+    @calorie_tracking = Current.user.calorie_trackings.new
   end
 
   def calculate_tdee

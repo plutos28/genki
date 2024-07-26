@@ -1,0 +1,10 @@
+<!-- header text -->
+<h1 class="font-bold text-3xl mb-1">Coach</h1>
+<p class="mb-8 text-gray-700">Enter your basic details below. We will utilize this information to create your workout and nutrition plans.</p>
+
+<div class="border-b -ml-10 pl-10 pb-0.5 space-x-6">
+  <a href="<%= coach_index_path %>" class="px-20 text-xl text-green-300 font-bold border-b border-green-300 border-b-2">Assistance</a>
+  <a href="<%= reminders_path %>" class="px-20 text-xl -pb-2 text-gray-500 hover:text-black">Reminders</a>
+</div>
+
+<%= render 'new', exercise_assistance_request: @exercise_assistance_request %>
